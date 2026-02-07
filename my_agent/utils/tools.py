@@ -1,7 +1,18 @@
-# database.py
+# tools.py
 import json
 import sqlite3
-from config import get_db_connection
+from dotenv import load_dotenv
+
+
+def load_environment():
+    """Load environment variables from .env file"""
+    return load_dotenv()
+
+
+def get_db_connection(db_path="DB/sata_data_parameter.db"):
+    """Get SQLite database connection"""
+    return sqlite3.connect(db_path)
+
 
 def fetch_data_required(filter_data, db_path="DB/sata_data_parameter.db"):
     """

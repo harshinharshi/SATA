@@ -1,6 +1,8 @@
-# graph_nodes.py
+# nodes.py
 from langchain_core.messages import SystemMessage, HumanMessage
 import json
+from my_agent.utils.state import State
+from my_agent.utils.tools import fetch_data_required
 
 
 def node_a(state: State, llm, system_prompt) -> State:
@@ -13,15 +15,13 @@ def node_a(state: State, llm, system_prompt) -> State:
     result = llm.invoke(messages)
     return State(output=[result.content])
 
+
 def node_b(state: State) -> State:
     """Node B: Fetch data from database"""
     print("Node B processing...")
     try:
         input_string = state['output'][-1]
         filter_data = json.loads(input_string)
-        
-        # Import here to avoid circular imports
-        from database import fetch_data_required
         
         result = fetch_data_required(filter_data)
         
@@ -37,6 +37,7 @@ def node_b(state: State) -> State:
     except Exception as e:
         print(f"Unexpected error in node_b: {e}")
         return state
+
 
 def node_c(state: State) -> State:
     """Node C: Process final result"""

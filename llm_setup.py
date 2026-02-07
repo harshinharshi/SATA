@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 def initialize_llm(model_name="openai/gpt-oss-120b", temperature=0, max_retries=2):
     """Initialize the LLM model"""
     return ChatGroq(
@@ -14,6 +15,7 @@ def initialize_llm(model_name="openai/gpt-oss-120b", temperature=0, max_retries=
         timeout=None,
         max_retries=max_retries
     )
+
 
 # Create a shared model instance
 model = initialize_llm()
