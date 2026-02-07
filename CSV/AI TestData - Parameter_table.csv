@@ -1,0 +1,12 @@
+Module,Application,Process,Data Required,TOSCA Scenario
+Ordering,Manage Central Purchase Contract,GR Contract Change,"GR Contract Number for change
+supplier
+Material",1
+Ordering,Manage Central Purchase Contract,Contract Creation,"supplier
+Material
+Plant or distribution Lines
+Payment terms",2
+Ordering,Manage Central Purchase Contract,Contract Change,Contract Number for change,3
+sourceing,Supplier Managed Quotations,Create Quatations,"Suppllier
+Exchange Rate for direct Parts
+Proposed Delivery Date",4
